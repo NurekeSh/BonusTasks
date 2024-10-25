@@ -1,0 +1,39 @@
+using System;
+
+abstract class ElectricalAppliance
+{
+    // Абстрактный метод
+    public abstract void TurnOn();
+}
+
+class Lamp : ElectricalAppliance
+{
+    // Реализация метода включения для лампы
+    public override void TurnOn()
+    {
+        Console.WriteLine("Лампа включена. Светит ярко!");
+    }
+}
+
+class Fan : ElectricalAppliance
+{
+    // Реализация метода включения для вентилятора
+    public override void TurnOn()
+    {
+        Console.WriteLine("Вентилятор включен. Ветер ощущается!");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Создаем экземпляры производных классов
+        ElectricalAppliance lamp = new Lamp();
+        ElectricalAppliance fan = new Fan();
+
+        // Включаем устройства
+        lamp.TurnOn();
+        fan.TurnOn();
+    }
+}
