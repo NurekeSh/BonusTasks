@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Vvedi colichestvo chisel Fibonachi: ");
+        int n = int.Parse(Console.ReadLine());
+        PrintFibonacci(n);
+    }
+
+    static void PrintFibonacci(int n)
+    {
+        if (n <= 0)
+        {
+            Console.WriteLine("Пожалуйста, введите положительное число.");
+            return;
+        }
+
+        // Массив для хранения чисел Фибоначчи
+        long[] fibonacci = new long[n];
+
+        // Заполнение массива
+        for (int i = 0; i < n; i++)
+        {
+            if (i == 0)
+            {
+                fibonacci[i] = 0; // Первое число Фибоначчи
+            }
+            else if (i == 1)
+            {
+                fibonacci[i] = 1; // Второе число Фибоначчи
+            }
+            else
+            {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]; // Сумма двух предыдущих
+            }
+        }
+
+        // Вывод чисел Фибоначчи
+        Console.WriteLine(string.Join(", ", fibonacci));
+    }
+}
