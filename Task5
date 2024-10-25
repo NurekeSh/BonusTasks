@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Введите количество строк треугольника Паскаля: ");
+        int rows = int.Parse(Console.ReadLine());
+        PrintPascalTriangle(rows);
+    }
+
+    static void PrintPascalTriangle(int rows)
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            // Печать пробелов для центрирования
+            Console.Write(new string(' ', (rows - i) * 2));
+
+            // Печать элементов строки
+            int value = 1;
+            for (int j = 0; j <= i; j++)
+            {
+                Console.Write(value + "   "); // Увеличиваем пробелы между элементами
+                value = value * (i - j) / (j + 1); // Вычисляем следующее значение
+            }
+            Console.WriteLine();
+        }
+    }
+}
